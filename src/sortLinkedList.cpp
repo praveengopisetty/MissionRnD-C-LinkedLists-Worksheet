@@ -16,8 +16,25 @@ NOTES: Without using extra array or linked list.
 struct node {
 	int num;
 	struct node *next;
-};
+}*p1, *p2;
 
 struct node * sortLinkedList(struct node *head) {
-	return NULL;
+	int temp;
+	if (head == NULL)
+	{
+		return NULL;
+	}
+	for (p1 = head; p1->next != NULL; p1 = p1->next)
+	{
+		for (p2 = p1->next; p2 != NULL; p2 = p2->next)
+		{
+			if (p1->num > p2->num)
+			{
+				temp = p1->num;
+				p1->num = p2->num;
+				p2->num = temp;
+			}
+		}
+	}
+	return head;
 }
